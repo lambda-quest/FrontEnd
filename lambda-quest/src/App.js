@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
+//routes
 import './App.css';
+import Login from './Views/Login/Login'
+
+//auth
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+      <Route path='/' exact render={() => <h1>Welcome to Lambda Quest</h1>} />
+      <Route path='/login' exact component={Login} />
+      {/* <Route path='/register' exact component={Register} /> */}
+      {/* <Route path='/about' render={} /> */}
+      {/* <Route path='/game' render={} /> */}
+      {/* <Route component={NotFound}/> */}
+      </Switch>
     </div>
   );
 }
