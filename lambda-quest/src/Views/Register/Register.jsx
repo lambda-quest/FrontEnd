@@ -24,7 +24,7 @@ class Register extends Component {
   handleRegister = e=>{
     e.preventDefault();
     this.props.register(this.state.credentials)
-    .then(()=>this.props.history.push('/game'))
+    // .then(()=>this.props.history.push('/game'))
   }
 
   render() {
@@ -42,23 +42,23 @@ class Register extends Component {
 
           <input 
           type='password'
-          name='username'
+          name='password1'
           value={this.state.credentials.password1}
           onChange={this.handleChange}
           placeholder='password'/>
 
           <input 
           type='password'
-          name='username'
+          name='password2'
           value={this.state.credentials.password2}
           onChange={this.handleChange}
           placeholder='confirm password'/>
 
-          <button>
+          <button type='submit'>
           {this.props.isLoggingIn? ('Please Wait...'):('Register')}
           </button>
-
-          {/* {this.props.error && <p {this.props.error}></p>} */}
+          {this.props.loggedIn ? `Welcome ${localStorage.getItem('Authorization')}` : ''}
+        
           <p>Already Registered? Click <Link to='/'>here</Link></p>
         </form>
       </div>
@@ -69,7 +69,8 @@ class Register extends Component {
 const mapStateToProps = state => {
   return {
     // error,
-     isLoggingIn: state.isLoggingIn
+     isLoggingIn: state.isLoggingIn,
+     loggedIn: state.loggedIn
   }
 }
 
