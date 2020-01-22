@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+//bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 //router
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 //redux
