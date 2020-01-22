@@ -1,8 +1,7 @@
 import axios from "axios";
 
 import { STARTGAME } from "./types";
-import {MOVEGUY } from '../actions/types'
-
+import { MOVEGUY } from "../actions/types";
 
 //GAME
 
@@ -16,6 +15,7 @@ export const initGame = () => dispatch => {
   axios
     .get("https://lambda-mud-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
+      console.log(res);
       dispatch({
         type: STARTGAME,
         payload: res.data
@@ -25,10 +25,13 @@ export const initGame = () => dispatch => {
 };
 
 //MOVE
-export const MoveGuy = () => dispatch => {
+export const moveGuyNorth = () => dispatch => {
   axios
-    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", token)
+    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", token, {
+      direction: "e"
+    })
     .then(res => {
+      console.log(res);
       dispatch({
         type: MOVEGUY,
         payload: res.data
