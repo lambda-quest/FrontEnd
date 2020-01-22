@@ -11,12 +11,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
 
-
-
-
 // import thunk from 'redux-thunk'
 // import rootreducer from './reducer'
-
 
 // const store = createStore(rootreducer, applyMiddleware(thunk));
 
