@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { initGame } from "../../actions/gameActions";
+import "./game.css";
+import logo from "../../assets/logo.jpg";
 
 class Game extends Component {
   static propTypes = {
@@ -17,17 +19,18 @@ class Game extends Component {
 
     return (
       <>
-        <div>
-          <h1>LambdaQuest</h1>
-          <div>
-            <h3>Wecome, {name}</h3>
-          </div>
+        <div className="gamebanner">
+          <img src={logo} alt="" className="logo" />
+          <h1 className="lquestTitle">LambdaQuest</h1>
+          <h3>Wecome, {name}</h3>
         </div>
-        <div></div>
+        <div className='whoIsHere'>
+          <h4>Student in this room:</h4>
+          <p>{players}</p>
+        </div>
 
         <p>{uuid}</p>
-        <h4>You look around and see :</h4>
-        {players}
+
         <h4>{title}</h4>
         <h4>{description}</h4>
         {console.log(players)}
