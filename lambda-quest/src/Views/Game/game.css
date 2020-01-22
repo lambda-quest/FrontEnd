@@ -1,0 +1,47 @@
+.gamebanner{
+  border: black 2px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.logo{
+  width: 70px;
+}
+
+.lquestTitle{
+  font-size: 4rem;
+}
+
+/* SIDE MENU */
+
+
+
+.guy{
+  width: 40px;
+}
+
+.mazecontainer{
+  margin: auto;
+  max-width: 1500px;
+  min-width: 800px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+/* RIGHT SIDE MENU */
+.rightsidecontainer{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.whoIsHere{
+  border: black 2px solid;
+  width: 300px;
+  height: 300px;
+  word-wrap: break-word;
+  overflow: scroll;
+}

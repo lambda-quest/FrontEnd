@@ -8,11 +8,8 @@ import About from './Views/About/About'
 import Game from './Views/Game/Game'
 import NotFound from './Views/NotFound/NotFound'
 //auth
-import auth from './auth/auth-header'
-import history from './auth/history'
-import privateroute from './auth/private-route'
-
-
+import history from './helpers/history'
+import privateroute from './helpers/auth/private-route'
 
 function App() {
   return (

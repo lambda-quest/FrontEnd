@@ -1,11 +1,77 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { register } from '../../actions'
+import {Link} from 'react-router-dom'
 
-const Register = () => {
-  return (
-    <div>
-      <h1>Register</h1>
-    </div>
-  )
+class Register extends Component {
+  state = {
+    credentials: {
+      username: '',
+      password1: '',
+      password2: ''
+    }
+  }
+
+  handleChange=e=>{
+    this.setState({
+      credentials: {
+        ...this.state.credentials,
+        [e.target.name]: e.target.value
+      }
+    })
+  }
+
+  handleRegister = e=>{
+    e.preventDefault();
+    this.props.register(this.state.credentials)
+    // .then(()=>this.props.history.push('/game'))
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Register</h1>
+        <form>
+          <input
+          type='text'
+          name='username'
+          value={this.state.credentials.username}
+          onChange={this.handleChange}
+          placeholder='username'
+          />
+
+          <input 
+          type='password'
+          name='password1'
+          value={this.state.credentials.password1}
+          onChange={this.handleChange}
+          placeholder='password'/>
+
+          <input 
+          type='password'
+          name='password2'
+          value={this.state.credentials.password2}
+          onChange={this.handleChange}
+          placeholder='confirm password'/>
+
+          <button type='submit'>
+          {this.props.isLoggingIn? ('Please Wait...'):('Register')}
+          </button>
+          {this.props.loggedIn ? `Welcome ${localStorage.getItem('Authorization')}` : ''}
+        
+          <p>Already Registered? Click <Link to='/'>here</Link></p>
+        </form>
+      </div>
+    )
+  }
 }
 
-export default Register
+const mapStateToProps = state => {
+  return {
+    // error,
+     isLoggingIn: state.isLoggingIn,
+     loggedIn: state.loggedIn
+  }
+}
+
+export default connect(mapStateToProps, {register})(Register);
