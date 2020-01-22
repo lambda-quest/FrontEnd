@@ -23,14 +23,14 @@ class Login extends Component {
    handleLogin = e => {
       e.preventDefault();
       this.props.login(this.state.credentials)
-      // .then(()=>this.props.history.push('/game'))
+      .then(()=>this.props.history.push('/game'))
    }
 
    render() {
       return (
-         <div>
+         <div style={{maxWidth: '300px', margin: 'auto'}}>
             <h1>Login to Lambda Quest</h1>
-            <form onSubmit={this.handleLogin}>
+            <form onSubmit={this.handleLogin} style={{display: 'flex', flexDirection: 'column'}}>
                <input type="text" name="username" placeholder="Username" 
                   value={this.state.credentials.username}
                   onChange={this.handleChange}>
