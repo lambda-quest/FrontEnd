@@ -48,13 +48,13 @@ class Login extends Component {
   render() {
     return (
       <div className="loginPage">
-        {this.state.bgmusic ?  '' : <LoginSound />}
+        {this.state.bgmusic === true ?  <LoginSound /> :'' }
 
         <div className="mute-container" onClick={this.musictoggle}>
           {this.state.bgmusic ? (
-            <img src={mute} alt="" className="unmute" />
+            <img src={unmute} alt="" className="unmute" />
           ) : (
-            <img src={unmute} alt="" className="mute" />
+            <img src={mute} alt="" className="mute" />
           )}
         </div>
         <div className="loginContainer">
@@ -94,7 +94,7 @@ class Login extends Component {
         <div className="intro">
           <p id="lambdaguy">Lambda Guy</p>
           <img src={guy} alt="guy" id="guy" />
-          <img src={pete} alt="" id="pete" />
+          <img src={pete} alt="" id="pete" className= 'bounce-5'/>
           <p id="pete-name"> Pete</p>
         </div>
       </div>

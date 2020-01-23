@@ -7,6 +7,7 @@ export default class LoginSound extends Component {
     return (
       <Sound
       url={loginsound}
+      autoLoad={true}
       playStatus={Sound.status.PLAYING}
       onLoading={this.handleSongLoading}
       onPlaying={this.handleSongPlaying}
