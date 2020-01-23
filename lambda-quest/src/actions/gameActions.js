@@ -8,14 +8,13 @@ import { MOVEGUY } from "../actions/types";
 //INIT
 
 let token = {
-  headers: { Authorization: "Token cbfaa68003c29eb56bed6b61eff460fa8d1d7e20" }
+  headers: { Authorization: "Token 1724136578a1be6abd0e996c181da3cf0d3b22b4" }
 };
 
 export const initGame = () => dispatch => {
   axios
     .get("https://lambda-mud-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
-      console.log(res);
       dispatch({
         type: STARTGAME,
         payload: res.data
@@ -25,13 +24,10 @@ export const initGame = () => dispatch => {
 };
 
 //MOVE
-export const moveGuyNorth = () => dispatch => {
+export const movePlayer = direction => dispatch => {
   axios
-    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", token, {
-      direction: "e"
-    })
+    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", direction, token)
     .then(res => {
-      console.log(res);
       dispatch({
         type: MOVEGUY,
         payload: res.data

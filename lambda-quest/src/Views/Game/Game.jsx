@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { initGame } from "../../actions/gameActions";
-import { moveGuyNorth } from "../../actions/gameActions";
+// import { moveGuyNorth } from "../../actions/gameActions";
 import "./game.css";
 import logo from "../../assets/logo.jpg";
 import guy from "../../assets/dude.png";
@@ -10,16 +10,12 @@ import Table from "react-bootstrap/Table";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Room from "./GameComponents/Room"
-// import ControlPanel from "./GameComponents/ControlPanel"
+import ControlPanel from "./GameComponents/ControlPanel"
 
 class Game extends Component {
   static propTypes = {
     gamedata: PropTypes.object
   };
-
-  // componentDidMount() {
-  //   this.props.initGame();
-  // }
 
   render() {
     const { uuid, players, title, description, name } = this.props.gamedata;
@@ -29,10 +25,11 @@ class Game extends Component {
         <div className="gamebanner">
           <img src={logo} alt="" className="logo" />
           <h1 className="lquestTitle">LambdaQuest</h1>
-          <h3>Wecome, {name}</h3>
+          <h3>Welcome, {name}</h3>
         </div>
         <button onClick={this.props.initGame}>start</button>
-        <button onClick={this.props.moveGuyNorth}>north</button>
+        {/* <button onClick={e => this.moveGuy(e)}>north</button> */}
+        <ControlPanel />
         {/* <div className="mazecontainer">
           <Table striped bordered hover variant="dark">
             <thead>
@@ -307,4 +304,4 @@ const mapStateToProps = state => ({
   gamedata: state.gameReducer.players
 });
 
-export default connect(mapStateToProps, { initGame, moveGuyNorth })(Game);
+export default connect(mapStateToProps, { initGame })(Game);
