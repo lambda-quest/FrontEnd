@@ -1,28 +1,88 @@
-.gamebanner{
-  border: black 2px solid;
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+.gamePage {
+  background-color: #222222;
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  font-size: 10px;
+  height: 100%;
+}
+
+.gamebanner {
+  /* border: black 2px solid; */
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  /* color: #fff; */
+}
+
+.logo {
+  width: 80px;
+}
+
+table {
+  font-size: 8px;
+  max-width: 500px;
+}
+
+th {
+  width: 20px;
+  height: 50px;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+}
+
+.lquestRoom {
+  margin: auto;
+  background-color: #1f1f1f;
+  max-width: 500px;
+  height: 500px;
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  
+  align-items: center;
+  align-content: space-between;
 }
 
-.logo{
-  width: 70px;
+.lquestTitle {
+  font-size: 3.3rem;
 }
 
-.lquestTitle{
-  font-size: 4rem;
+.lquestDesc {
+  font-size: 10px;
+}
+
+.lquestButtonContainer {
+  /* max-width: "300px"; */
+  /* border: 1px solid blue; */
+  display: flex;
+}
+
+.lquestButton {
+  font-size: 10px;
+  background-color: #77c600;
+  color: #000;
+  width: 80px;
+  padding: 8px 20px 8px 20px;
+  margin: 2px;
+  cursor: pointer;
 }
 
 /* SIDE MENU */
 
-
-
-.guy{
+.guy {
   width: 60px;
 }
 
-.mazecontainer{
+.mazecontainer {
   margin: auto;
   max-width: 1500px;
   min-width: 800px;
@@ -32,15 +92,17 @@
 }
 
 /* RIGHT SIDE MENU */
-.rightsidecontainer{
+.rightsidecontainer {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 300px;
+  color: #000;
+  /* font-size: 10px; */
 }
 
-.whoIsHere{
+.whoIsHere {
   border: black 2px solid;
-  width: 300px;
+  width: 100%;
   height: 300px;
   word-wrap: break-word;
   overflow: scroll;

@@ -2,183 +2,99 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { initGame } from "../../actions/gameActions";
-import { moveGuyNorth } from "../../actions/gameActions";
 import "./game.css";
-import logo from "../../assets/logo.jpg";
-import guy from "../../assets/dude.png";
+import logo from "../../assets/logo1.JPG";
+import guy from "../../assets/lambdadudeNoBg.png";
 import Table from "react-bootstrap/Table";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
-import Room from "./GameComponents/Room"
-// import ControlPanel from "./GameComponents/ControlPanel"
+import Room from "./GameComponents/Room";
+import ControlPanel from "./GameComponents/ControlPanel";
 
 class Game extends Component {
   static propTypes = {
     gamedata: PropTypes.object
   };
 
-  // componentDidMount() {
-  //   this.props.initGame();
-  // }
+  componentDidMount() {
+    this.props.initGame();
+  }
 
   render() {
     const { uuid, players, title, description, name } = this.props.gamedata;
 
     return (
-      <>
+      <div className="gamePage">
         <div className="gamebanner">
           <img src={logo} alt="" className="logo" />
-          <h1 className="lquestTitle">LambdaQuest</h1>
-          <h3>Wecome, {name}</h3>
+          <h1 className="lquestTitle">Lambda Quest</h1>
         </div>
-        <button onClick={this.props.initGame}>start</button>
-        <button onClick={this.props.moveGuyNorth}>north</button>
-        {/* <div className="mazecontainer">
+        <h3>Welcome, {name}</h3>
+
+        <div className="mazecontainer">
           <Table striped bordered hover variant="dark">
             <thead>
               <tr>
-                <th>
-                  {description === "1" ? <img src={guy} alt="" className="guy" />: 1}
-                  </th>
-                <th>
-                  {description === "2" ? <img src={guy} alt="" className="guy" />: 2 }
-                  </th>
-                <th>
-                  {description === "3" ? <img src={guy} alt="" className="guy" />: 3 }
-                  </th>
-                <th>
-                  {description === "4" ? <img src={guy} alt="" className="guy" />: 4 }
-                  </th>
-                <th>
-                  {description === "5" ? <img src={guy} alt="" className="guy" />: 5 }
-                  </th>
-                <th>
-                  {description === "6" ? <img src={guy} alt="" className="guy" />: 6 }
-                  </th>
-                <th>
-                  {description === "7" ? <img src={guy} alt="" className="guy" />: 7 }
-                  </th>
-                <th>
-                  {description === "8" ? <img src={guy} alt="" className="guy" />: 8 }
-                  </th>
-                <th>
-                  {description === "9" ? <img src={guy} alt="" className="guy" />: 9 }
-                  </th>
-                <th>
-                  {description === "10" ? <img src={guy} alt="" className="guy" />: 10 }
-                  </th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>
-                  {description === "11" ? <img src={guy} alt="" className="guy" />: 11 }
-                  </td>
-                <td>
-                  {description === "12" ? <img src={guy} alt="" className="guy" />: 12 }
-                  </td>
-                <td>
-                  {description === "13" ? <img src={guy} alt="" className="guy" />: 13 }
-                  </td>
-                <td>
-                  {description === "14" ? <img src={guy} alt="" className="guy" />: 14 }
-                  </td>
-                <td>
-                  {description === "15" ? <img src={guy} alt="" className="guy" />: 15 }
-                  </td>
-                <td>
-                  {description === "16" ? <img src={guy} alt="" className="guy" />: 18 }
-                  </td>
-                <th>
-                  {description === "19" ? <img src={guy} alt="" className="guy" />: 19 }
-                  </th>
-                <td>
-                  {description === "20" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
               </tr>
               <tr>
-                <td>
-                  {description === "11" ? <img src={guy} alt="" className="guy" />: 11 }
-                  </td>
-                <td>
-                  {description === "12" ? <img src={guy} alt="" className="guy" />: 12 }
-                  </td>
-                <td>
-                  {description === "13" ? <img src={guy} alt="" className="guy" />: 13 }
-                  </td>
-                <td>
-                  {description === "14" ? <img src={guy} alt="" className="guy" />: 14 }
-                  </td>
-                <td>
-                  {description === "15" ? <img src={guy} alt="" className="guy" />: 15 }
-                  </td>
-                <td>
-                  {description === "16" ? <img src={guy} alt="" className="guy" />: 18 }
-                  </td>
-                <th>
-                  {description === "19" ? <img src={guy} alt="" className="guy" />: 19 }
-                  </th>
-                <td>
-                  {description === "20" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
               </tr>
               <tr>
-              <td>
-                  {description === "31" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "32" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "33" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "34" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "35" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "36" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "37" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "38" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "39" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "40" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
+                <td>31</td>
+                <td>32</td>
+                <td>33</td>
+                <td>34</td>
+                <td>35</td>
+                <td>36</td>
+                <td>37</td>
+                <td>38</td>
+                <td>39</td>
+                <td>40</td>
               </tr>
               <tr>
-              <td>
-                  {description === "41" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td><td>
-                  {description === "42" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td><td>
-                  {description === "43" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td><td>
-                  {description === "44" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                <td>
-                  {title === "Outside Cave Entrance" ? <img src={guy} alt="" className="guy" />: 45}
-                  </td>
-                  <td>
-                  {description === "46" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
-                  <td>
-                  {description === "47" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td><td>
-                  {description === "48" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td><td>
-                  {description === "49" ? <img src={guy} alt="" className="guy" />: 20 }
-                  </td>
+                <td>41</td>
+                <td>42</td>
+                <td>43</td>
+                <td>44</td>
+                <td>45</td>
+                <td>46</td>
+                <td>47</td>
+                <td>48</td>
+                <td>49</td>
+                <td>50</td>
               </tr>
               <tr>
                 <td>51</td>
@@ -214,7 +130,7 @@ class Game extends Component {
                 <td>77</td>
                 <td>78</td>
                 <td>79</td>
-                <td>80</td>
+                <td>70</td>
               </tr>
               <tr>
                 <td>81</td>
@@ -242,62 +158,53 @@ class Game extends Component {
               </tr>
             </tbody>
           </Table>
-          <div>
-            <div className="rightsidecontainer">
-              <Accordion defaultActiveKey="0">
-                <Card>
-                  <Accordion.Toggle as={Card.Header} eventKey="0">
-                    Who's Here?
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                      <div className="whoIsHere">
-                        <h4>Student in this room:</h4>
-                        <p>{players}</p>
-                      </div>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
 
-              <Accordion defaultActiveKey="0">
-                <Card>
-                  <Accordion.Toggle as={Card.Header} eventKey="0">
-                    Chat
-                  </Accordion.Toggle>
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                      <div className="chatbox">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Aspernatur commodi, eum deserunt excepturi possimus
-                        error, delectus adipisci amet earum veritatis eos alias
-                        beatae quam ipsa consequatur laborum, vitae sit dicta!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Mollitia doloremque quae vero nulla numquam dolorum? In
-                        veniam eveniet est ratione accusantium? Vero sequi eos
-                        aliquid, ducimus perferendis dolorum! Obcaecati, sequi?
-                      </div>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
-            </div>
+          {/* ROOM Component */}
+          <div className="lquestRoom">
+            {/* <p>{uuid}</p> */}
+
+            <h4>{title}</h4>
+            <h4 className="lquestDesc">{description}</h4>
+            <img src={guy} alt="" className="guy" />
+
+            <ControlPanel />
+          </div>
+
+          <div className="rightsidecontainer">
+            <Accordion defaultActiveKey="0">
+              <Card>
+                <Accordion.Toggle as={Card.Header} eventKey="0">
+                  Who's Here?
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body className="whoIsHere">
+                    {/* <div className="whoIsHere"> */}
+                    <h4>Students in this room:</h4>
+                    <p>{players}</p>
+                    {/* </div> */}
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
+
+            <Accordion defaultActiveKey="0" className="chatroom">
+              <Card>
+                <Accordion.Toggle as={Card.Header} eventKey="0">
+                  Chat
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="0">
+                  <Card.Body>
+                    <div className="chatbox">There might a chat here.</div>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
           </div>
         </div>
-         */}
-        
 
         {/* Room Component */}
         <Room />
-        {/* <ControlPanel /> */}
-        <p>{uuid}</p>
-
-        <h4>{title}</h4>
-        <h4>{description}</h4>
-        <img src={guy} alt="" className="guy" />
-        {console.log(players)}
-        {console.log(title)}
-      </>
+      </div>
     );
   }
 }
@@ -307,4 +214,4 @@ const mapStateToProps = state => ({
   gamedata: state.gameReducer.players
 });
 
-export default connect(mapStateToProps, { initGame, moveGuyNorth })(Game);
+export default connect(mapStateToProps, { initGame })(Game);

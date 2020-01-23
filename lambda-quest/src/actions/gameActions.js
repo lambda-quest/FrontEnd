@@ -25,13 +25,10 @@ export const initGame = () => dispatch => {
 };
 
 //MOVE
-export const moveGuyNorth = () => dispatch => {
+export const movePlayer = direction => dispatch => {
   axios
-    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", token, {
-      direction: "e"
-    })
+    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", direction, token)
     .then(res => {
-      console.log(res);
       dispatch({
         type: MOVEGUY,
         payload: res.data
