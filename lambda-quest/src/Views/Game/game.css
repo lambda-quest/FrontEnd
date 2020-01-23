@@ -21,21 +21,7 @@
   width: 80px;
 }
 
-table {
-  font-size: 8px;
-  max-width: 500px;
-}
 
-th {
-  width: 20px;
-  height: 50px;
-}
-
-td {
-  width: 50px;
-  height: 50px;
-  padding: 0px;
-}
 
 .lquestRoom {
   margin: auto;
@@ -79,16 +65,42 @@ td {
 /* SIDE MENU */
 
 .guy {
-  width: 60px;
+  width: 90px;
+}
+
+.tinyguy{
+  width: 30px;
 }
 
 .mazecontainer {
   margin: auto;
-  max-width: 1500px;
+  margin-top: 90px;
+  max-width: 1400px;
   min-width: 800px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+.gameboard-container{
+  width: 600px;
+  
+}
+
+table {
+  font-size: 8px;
+  max-width: 600px;
+}
+
+th {
+  width: 50px;
+  height: 50px;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  padding: 0px;
 }
 
 /* RIGHT SIDE MENU */
@@ -107,3 +119,124 @@ td {
   word-wrap: break-word;
   overflow: scroll;
 }
+
+/* audio components */
+.mute, .unmute{
+  position: relative;
+  left: 670px;
+  top: 45px;
+  width: 35px;
+  background-color: #B71B1C;
+  border-radius: 100%;
+  padding: 10px;
+  filter: drop-shadow(-1px 1px 2px #333);
+  
+}
+/* 
+.css-typing h4 {
+  border-right: .15em solid orange;
+  font-family: "Courier";
+  font-size: 12px;
+  white-space: wrap;
+  overflow: hidden;
+}
+.css-typing h4 {
+  width: 26.3em;
+  -webkit-animation: type 2s steps(40, end);
+  animation: type 2s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+} */

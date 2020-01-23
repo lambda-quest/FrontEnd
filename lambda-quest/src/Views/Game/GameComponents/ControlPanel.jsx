@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 import { movePlayer } from "../../../actions/gameActions";
 import "../game.css";
@@ -8,8 +7,8 @@ class ControlPanel extends Component {
   state = {};
 
   movePlayer = direction => {
-    const way = { direction: direction };
-    this.props.movePlayer(way);
+     console.log(direction)
+    this.props.movePlayer({ direction });
   };
 
   render() {
@@ -24,7 +23,11 @@ class ControlPanel extends Component {
       >
         <h4 style={{ fontSize: "14px" }}>Where do you want to go next?</h4>
         <div className="lquestButtonContainer">
-          <div className="lquestButton" onClick={() => this.movePlayer("n")}>
+          <div
+            className="lquestButton"
+            onClick={() => this.movePlayer("n")}
+            onKeyDown={e => this.movePlayer("n")}
+          >
             North
           </div>
           <div className="lquestButton" onClick={() => this.movePlayer("e")}>

@@ -36,3 +36,16 @@ export const movePlayer = direction => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+
+//MOVE
+export const chatApi = () => dispatch => {
+  axios
+    .post("https://us1.pusherplatform.io/services/chatkit_token_provider/v1/a5c46f09-c95f-4317-b5bf-6542380cfddb/token")
+    .then(res => {
+      dispatch({
+        
+      });
+    })
+    .catch(err => console.log(err));
+};
