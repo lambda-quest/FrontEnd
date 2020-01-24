@@ -11,16 +11,35 @@
 }
 
 .loginContainer {
-  
   width: 500px;
   background-color: #fff;
   color: #222222;
   margin: auto;
   padding: 32px;
+  z-index: 100;
+}
+
+#mute{
+  position: relative;
+  left: 300px;
+  top: 10px;
+  width: 40px;
+  background-color: #B71B1C;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+#unmute{
+  position: relative;
+  left: 300px;
+  top: 10px;
+  width: 40px;
+  background-color: #B71B1C;
+  border-radius: 100%;
+  padding: 10px;
 }
 
 .lquestForm {
- 
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -42,6 +61,7 @@
 
 #guy {
   width: 150px;
+  filter: drop-shadow(-1px 1px 2px rgb(0, 0, 0));
 }
 .intro {
   position: relative;
@@ -71,7 +91,7 @@
   position: relative;
   top: 90px;
   right: 50px;
-  filter: drop-shadow(-2px 5px 20px #333);
+  filter: drop-shadow(-2px 5px 10px rgb(0, 0, 0));
 }
 
 #pete {
@@ -79,25 +99,27 @@
   animation-timing-function: ease;
 }
 @keyframes bounce-5 {
-  0%   { transform: scale(1,1)    translateY(0); }
-  10%  { transform: scale(1,.8) translateY(0); }
-  30%  { transform: scale(.8,1) translateY(-100px); }
-  50%  { transform: scale(1,1)    translateY(0); }
-  57%  { transform: scale(1,1)    translateY(-5px); }
-  64%  { transform: scale(1,1)    translateY(0); }
-  100% { transform: scale(1,1)    translateY(0); }
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1, 0.8) translateY(0);
+  }
+  30% {
+    transform: scale(0.8, 1) translateY(-100px);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(-5px);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
 }
 
 
-
-.mute, .unmute{
-  position: relative;
-  left: 220px;
-  top: 45px;
-  width: 35px;
-  background-color: #B71B1C;
-  border-radius: 100%;
-  padding: 10px;
-  filter: drop-shadow(-1px 1px 2px #333);
-  
-}

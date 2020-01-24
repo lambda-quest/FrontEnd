@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getRooms } from "../../../actions/gameActions";
 //components
 
 //bootstrap
@@ -6,14 +8,29 @@ import Table from "react-bootstrap/Table";
 //stying
 import "../game.css";
 //assetts
-import dude from '../../../assets/lambdadudeNoBg.png'
+import dude from "../../../assets/lambdadudeNoBg.png";
 
 class Map extends Component {
-  state = {};
+  state = {
+    activeRoom: this.props.activeRoom
+  };
+
+  componentDidMount() {
+    this.props.getRooms();
+  }
 
   render() {
+    console.log("Map");
+    console.log(this.props.rooms);
+    console.log(this.state.activeRoom);
     return (
-      <div className='gameboard-container'>
+      <div className="gameboard-container">
+        <div className="lquestMap">
+          {this.props.rooms.map(room => {
+            return <div className="lquestMapRoom">{room.id}</div>;
+          })}
+        </div>
+
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
@@ -71,8 +88,20 @@ class Map extends Component {
               <td>42</td>
               <td>43</td>
               <td>44</td>
-    <td>{this.props.title === 'Grand Overlook'? <img src={dude} alt="dude" className='tinyguy'/>: '45'}</td>
-              <td>{this.props.title === 'Treasure Chamber'? <img src={dude} alt="dude" className='tinyguy'/>: '46'}</td>
+              <td>
+                {this.props.title === "Grand Overlook" ? (
+                  <img src={dude} alt="dude" className="tinyguy" />
+                ) : (
+                  "45"
+                )}
+              </td>
+              <td>
+                {this.props.title === "Treasure Chamber" ? (
+                  <img src={dude} alt="dude" className="tinyguy" />
+                ) : (
+                  "46"
+                )}
+              </td>
               <td>47</td>
               <td>48</td>
               <td>49</td>
@@ -83,8 +112,20 @@ class Map extends Component {
               <td>52</td>
               <td>53</td>
               <td>54</td>
-              <td>{this.props.title === 'Foyer'? <img src={dude} alt="dude" className='tinyguy'/>: '55'}</td>
-              <td>{this.props.title === 'Narrow Passage'? <img src={dude} alt="dude" className='tinyguy'/>: '56'}</td>
+              <td>
+                {this.props.title === "Foyer" ? (
+                  <img src={dude} alt="dude" className="tinyguy" />
+                ) : (
+                  "55"
+                )}
+              </td>
+              <td>
+                {this.props.title === "Narrow Passage" ? (
+                  <img src={dude} alt="dude" className="tinyguy" />
+                ) : (
+                  "56"
+                )}
+              </td>
               <td>57</td>
               <td>58</td>
               <td>59</td>
@@ -95,7 +136,13 @@ class Map extends Component {
               <td>62</td>
               <td>63</td>
               <td>64</td>
-              <td>{this.props.title === 'Outside Cave Entrance'? <img src={dude} alt="dude" className='tinyguy'/>: '65'}</td>
+              <td>
+                {this.props.title === "Outside Cave Entrance" ? (
+                  <img src={dude} alt="dude" className="tinyguy" />
+                ) : (
+                  "65"
+                )}
+              </td>
               <td>66</td>
               <td>67</td>
               <td>68</td>
@@ -145,4 +192,9 @@ class Map extends Component {
   }
 }
 
-export default Map;
+const mapStateToProps = state => ({
+  //name_of_state: state.reducerfilename.item_in_state
+  rooms: state.gameReducer.rooms
+});
+
+export default connect(mapStateToProps, { getRooms })(Ma

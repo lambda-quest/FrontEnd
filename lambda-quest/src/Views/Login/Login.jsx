@@ -23,7 +23,6 @@ class Login extends Component {
     }
   };
 
-
   handleChange = e => {
     this.setState({
       credentials: {
@@ -48,15 +47,16 @@ class Login extends Component {
   render() {
     return (
       <div className="loginPage">
-        {this.state.bgmusic === true ?  <LoginSound /> :'' }
-
+        {this.state.bgmusic === true ? <LoginSound /> : ""}
+        {/* mutebutton */}
         <div className="mute-container" onClick={this.musictoggle}>
           {this.state.bgmusic ? (
-            <img src={unmute} alt="" className="unmute" />
+            <img src={unmute} alt="" id="unmute" />
           ) : (
-            <img src={mute} alt="" className="mute" />
+            <img src={mute} alt="" id="mute" />
           )}
         </div>
+
         <div className="loginContainer">
           <p>Welcome to</p>
 
@@ -94,7 +94,7 @@ class Login extends Component {
         <div className="intro">
           <p id="lambdaguy">Lambda Guy</p>
           <img src={guy} alt="guy" id="guy" />
-          <img src={pete} alt="" id="pete" className= 'bounce-5'/>
+          <img src={pete} alt="" id="pete" className="bounce-5" />
           <p id="pete-name"> Pete</p>
         </div>
       </div>

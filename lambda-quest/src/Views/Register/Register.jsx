@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { register } from "../../actions";
+import { register } from "../../actions/authActions";
 import { Link } from "react-router-dom";
 import "./register.css";
 
@@ -25,6 +25,7 @@ class Register extends Component {
   handleRegister = e => {
     e.preventDefault();
     this.props.register(this.state.credentials);
+    console.log("handle Register");
     // .then(()=>this.props.history.push('/game'))
   };
 
@@ -34,7 +35,7 @@ class Register extends Component {
         <div className="registerContainer">
           <span>Welcome to</span>
           <h2>Lambda Quest</h2>
-          <form className="lquestForm">
+          <form className="lquestForm" onSubmit={this.handleRegister}>
             <input
               type="text"
               name="username"
@@ -42,7 +43,7 @@ class Register extends Component {
               onChange={this.handleChange}
               placeholder="username"
             />
-  
+
             <input
               type="password"
               name="password1"
@@ -50,7 +51,7 @@ class Register extends Component {
               onChange={this.handleChange}
               placeholder="password"
             />
-  
+
             <input
               type="password"
               name="password2"
@@ -58,14 +59,14 @@ class Register extends Component {
               onChange={this.handleChange}
               placeholder="confirm password"
             />
-  
+
             <button type="submit">
               {this.props.isLoggingIn ? "Please Wait..." : "Register"}
             </button>
             {this.props.loggedIn
               ? `Welcome ${localStorage.getItem("Authorization")}`
               : ""}
-  
+
             <p>
               Already Registered? Click <Link to="/">here</Link>
             </p>

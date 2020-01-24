@@ -22,7 +22,26 @@
   width: 80px;
 }
 
+.lquestMap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 580px;
+  border: 1px solid gray;
+}
 
+.lquestMapRoom {
+  background-color: gray;
+  min-width: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.lquestMapRoomActive {
+  background-color: yellowgreen;
+}
 
 .lquestRoom {
   margin: auto;
@@ -37,6 +56,10 @@
   justify-content: space-between;
   align-items: center;
   align-content: space-between;
+}
+
+.lquestRoomName {
+  font-size: 12px;
 }
 
 .lquestTitle {
@@ -67,10 +90,12 @@
 
 .guy {
   width: 90px;
+  filter: drop-shadow(-1px 1px 2px rgb(0, 0, 0));
 }
 
-.tinyguy{
-  width: 30px;
+.tinyguy {
+  width: 32px;
+  filter: drop-shadow(-1px 1px 2px rgb(0, 0, 0));
 }
 
 .mazecontainer {
@@ -83,9 +108,8 @@
   flex-wrap: nowrap;
 }
 
-.gameboard-container{
+.gameboard-container {
   width: 600px;
-  
 }
 
 table {
@@ -122,16 +146,16 @@ td {
 }
 
 /* audio components */
-.mute, .unmute{
+.mute,
+.unmute {
   position: relative;
   left: 670px;
   top: 45px;
   width: 35px;
-  background-color: #B71B1C;
+  background-color: #b71b1c;
   border-radius: 100%;
   padding: 10px;
   filter: drop-shadow(-1px 1px 2px #333);
-  
 }
 /* 
 .css-typing h4 {

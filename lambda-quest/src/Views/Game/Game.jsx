@@ -30,7 +30,7 @@ class Game extends Component {
   };
 
   state = {
-    bgmusic: true
+    bgmusic: false
   };
 
   componentDidMount() {
@@ -43,7 +43,9 @@ class Game extends Component {
   };
 
   render() {
-    const { uuid, players, title, description, name } = this.props.gamedata;
+    const { uuid, players, title, description, name, id } = this.props.gamedata;
+    console.log("Room in Game component");
+    console.log(id);
 
     return (
       <div className="gamePage">
@@ -64,13 +66,13 @@ class Game extends Component {
         <h3>Welcome, {name}</h3>
 
         <div className="mazecontainer">
-          <Map title={title} />
+          <Map title={title} activeRoom={id} />
 
           {/* ROOM Component */}
           <div className="lquestRoom css-typing">
             {/* <p>{uuid}</p> */}
 
-            <h3 className=''>{title}</h3>
+            <h3 className="lquestRoomName">You are in room {id}</h3>
             <h4 className="lquestDesc">{description}</h4>
             <img src={guy} alt="" className="guy" />
 
@@ -102,7 +104,7 @@ class Game extends Component {
                 <Accordion.Collapse eventKey="0">
                   <Card.Body>
                     <div className="chatbox">
-                      <Chatbox props={this.props.gamedata}/>
+                      <Chatbox props={this.props.gamedata} />
                     </div>
                   </Card.Body>
                 </Accordion.Collapse>
@@ -120,7 +122,7 @@ class Game extends Component {
 
 const mapStateToProps = state => ({
   //name_of_state: state.reducerfilename.item_in_state
-  gamedata: state.gameReducer.players
+  gamedata: state.gameReducer.player
 });
 
 export default connect(mapStateToProps, { initGame })(Game);

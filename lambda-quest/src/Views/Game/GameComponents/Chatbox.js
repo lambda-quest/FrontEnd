@@ -5,7 +5,7 @@ import {
   withChatkit
 } from "@pusher/chatkit-client-react";
 
-import  '../game.css'
+import "../game.css";
 
 const instanceLocator = "v1:us1:a5c46f09-c95f-4317-b5bf-6542380cfddb";
 const userId = "test1";
@@ -27,32 +27,27 @@ const WelcomeMessage = withChatkit(props => {
 
 export default class Chatbox extends Component {
   state = {
-    message: '',
+    message: "",
     chat: []
   };
 
   handleChange = e => {
     this.setState({
-        ...this.state.message,
-        [e.target.name]: e.target.value
-    
+      ...this.state.message,
+      [e.target.name]: e.target.value
     });
   };
 
   handleChat = e => {
     e.preventDefault();
-      this.setState({
-        chat: [...this.state.chat, this.state.message]
-      })
-        
-   
+    this.setState({
+      chat: [...this.state.chat, this.state.message]
+    });
   };
 
- 
-
-  render() { 
-    console.log(this.state.message)
-    console.log(this.state.chat)
+  render() {
+    // console.log(this.state.message)
+    // console.log(this.state.chat)
     return (
       <div>
         <ChatkitProvider
@@ -61,8 +56,7 @@ export default class Chatbox extends Component {
           userId={userId}
         >
           <WelcomeMessage />
-          <div className='sendchat' onSubmit={this.handleChat}>
-            
+          <div className="sendchat" onSubmit={this.handleChat}>
             <input
               type="text"
               placeholder="type message"
