@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Loader from 'react-loader-spinner';
 //redux
 import { connect } from "react-redux";
 //components
@@ -19,7 +20,8 @@ class Login extends Component {
     credentials: {
       username: "",
       password: "",
-      bgmusic: true
+      bgmusic: true,
+      loading: false
     }
   };
 
@@ -34,9 +36,13 @@ class Login extends Component {
 
   handleLogin = e => {
     e.preventDefault();
+    this.setState({ loading: true })
     this.props
       .login(this.state.credentials)
-      .then(() => this.props.history.push("/game"));
+      .then(() => {
+        this.setState({ loading: false })
+        this.props.history.push("/game");
+      }).catch(err => console.log(err))
   };
 
   musictoggle = () => {
@@ -45,60 +51,68 @@ class Login extends Component {
   };
 
   render() {
-    return (
-      <div className="loginPage">
-        {this.state.bgmusic === true ? <LoginSound /> : ""}
-        {/* mutebutton */}
-        <div className="mute-container" onClick={this.musictoggle}>
-          {this.state.bgmusic ? (
-            <img src={unmute} alt="" id="unmute" />
-          ) : (
-            <img src={mute} alt="" id="mute" />
-          )}
+    if(this.state.loading){
+      return (
+        <div className="loginPage">
+          <Loader type="Grid" color="yellowgreen" height={80} width={80} />
         </div>
-
-        <div className="loginContainer">
-          <p>Welcome to</p>
-
-          <img src={logo} alt="logo" className="logo" />
-          <h2>Lambda Quest</h2>
-
-          <form onSubmit={this.handleLogin} className="lquestForm">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={this.state.credentials.username}
-              onChange={this.handleChange}
-            ></input>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.credentials.password}
-              onChange={this.handleChange}
-            ></input>
-
-            <button type="submit">Login</button>
-            {this.props.isLoggingIn
-              ? "It's dangerous to go alone! Take this."
-              : ""}
-            {this.props.loggedIn
-              ? `Welcome ${localStorage.getItem("Authorization")}`
-              : ""}
-            <p>
-              Not Registered? Click <Link to="/register">here</Link>
-            </p>
-          </form>
+      )
+    } else {
+      return (
+        <div className="loginPage">
+          {this.state.bgmusic === true ? <LoginSound /> : ""}
+          {/* mutebutton */}
+          <div className="mute-container" onClick={this.musictoggle}>
+            {this.state.bgmusic ? (
+              <img src={unmute} alt="" id="unmute" />
+            ) : (
+              <img src={mute} alt="" id="mute" />
+            )}
+          </div>
+  
+          <div className="loginContainer">
+            <p>Welcome to</p>
+  
+            <img src={logo} alt="logo" className="logo" />
+            <h2>Lambda Quest</h2>
+  
+            <form onSubmit={this.handleLogin} className="lquestForm">
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={this.state.credentials.username}
+                onChange={this.handleChange}
+              ></input>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={this.state.credentials.password}
+                onChange={this.handleChange}
+              ></input>
+  
+              <button type="submit">Login</button>
+              {this.props.isLoggingIn
+                ? "It's dangerous to go alone! Take this."
+                : ""}
+              {this.props.loggedIn
+                ? `Welcome ${localStorage.getItem("Authorization")}`
+                : ""}
+              <p>
+                Not Registered? Click <Link to="/register">here</Link>
+              </p>
+            </form>
+          </div>
+          <div className="intro">
+            <p id="lambdaguy">Lambda Guy</p>
+            <img src={guy} alt="guy" id="guy" />
+            <img src={pete} alt="" id="pete" className="bounce-5" />
+            <p id="pete-name"> Pete</p>
+          </div>
         </div>
-        <div className="intro">
-          <p id="lambdaguy">Lambda Guy</p>
-          <img src={guy} alt="guy" id="guy" />
-          <img src={pete} alt="" id="pete" className="bounce-5" />
-          <p id="pete-name"> Pete</p>
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
