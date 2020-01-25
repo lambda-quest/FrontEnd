@@ -72,14 +72,14 @@
 
 #lambdaguy {
   position: relative;
-  top: 25px;
+  
   right: 20px;
 }
 
 #pete-name {
   position: relative;
   left: 20px;
-  bottom: 10px;
+  bottom: -15px;
 }
 
 #pete {
@@ -89,7 +89,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   position: relative;
-  top: 90px;
+  top: 74px;
   right: 50px;
   filter: drop-shadow(-2px 5px 10px rgb(0, 0, 0));
 }
