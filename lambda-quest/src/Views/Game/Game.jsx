@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 //actions
 import { initGame } from "../../actions/gameActions";
+import { getPlayers } from "../../actions/gameActions";
 //styling
 import "./game.css";
 //assetts
@@ -26,7 +27,8 @@ import Map from "./GameComponents/Map";
 
 class Game extends Component {
   static propTypes = {
-    gamedata: PropTypes.object
+    gamedata: PropTypes.object,
+    otherpeople: PropTypes.array
   };
 
   state = {
@@ -35,6 +37,7 @@ class Game extends Component {
 
   componentDidMount() {
     this.props.initGame();
+    this.props.getPlayers()
   }
 
   musictoggle = () => {
@@ -44,8 +47,11 @@ class Game extends Component {
 
   render() {
     const { uuid, players, title, description, name, id } = this.props.gamedata;
+    // const {id } = this.props.peopledata
     console.log("Room in Game component");
     console.log(id);
+    console.log(this.props.peopledata)
+    console.log(id)
 
     return (
       <div className="gamePage">
@@ -122,7 +128,8 @@ class Game extends Component {
 
 const mapStateToProps = state => ({
   //name_of_state: state.reducerfilename.item_in_state
-  gamedata: state.gameReducer.player
+  gamedata: state.gameReducer.player,
+  peopledata : state.gameReducer.otherpeople
 });
 
-export default connect(mapStateToProps, { initGame })(Game);
+export default connect(mapStateToProps, { initGame, getPlayers })(Game);

@@ -1,6 +1,7 @@
 export const STARTGAME = "STARTGAME";
 export const MOVEGUY = "MOVEGUY";
 export const BUILDMAP = "BUILDMAP";
+export const GETPLAYERS = "GETPLAYERS"
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";

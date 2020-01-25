@@ -31,7 +31,7 @@ class Map extends Component {
     return (
       <div className="gameboard-container">
         <div className="lquestMap">
-          {this.props.rooms.map(room => {
+          {this.props.rooms.sort((a,b) =>a.id - b.id).map(room => {
             return (
               <div
                 key={room.id}

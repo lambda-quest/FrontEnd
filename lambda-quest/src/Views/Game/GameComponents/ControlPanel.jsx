@@ -28,7 +28,6 @@ class ControlPanel extends Component {
           <div
             className="lquestButton"
             onClick={() => this.movePlayer("n")}
-            // onKeyDown={e => this.movePlayer("n")}
           >
             North
           </div>

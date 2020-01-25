@@ -3,6 +3,7 @@ import axios from "axios";
 import { STARTGAME } from "../actions/types";
 import { MOVEGUY } from "../actions/types";
 import { BUILDMAP } from "../actions/types";
+import { GETPLAYERS } from "../actions/types";
 
 let token = {
   headers: { Authorization: `${localStorage.getItem("Authorization")}` }
@@ -22,11 +23,25 @@ export const initGame = () => dispatch => {
     .catch(err => console.log(err));
 };
 
+export const getPlayers = () => dispatch => {
+  axios
+    .get("https://reed-test.herokuapp.com/api/adv/getPlayers/", token)
+    .then(res => {
+      console.log("players gotten");
+      // console.log(res);
+      dispatch({
+        type: GETPLAYERS,
+        payload: res.data
+      });
+    })
+    .catch(err => console.log(err));
+};
+
 export const getRooms = () => dispatch => {
   axios
     .get("https://reed-test.herokuapp.com/api/adv/getRooms/", token)
     .then(res => {
-      // console.log("get Rooms");
+      console.log("get Rooms");
       // console.log(res);
       dispatch({
         type: BUILDMAP,
@@ -44,22 +59,22 @@ export const movePlayer = direction => dispatch => {
     .get("https://reed-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
       dispatch({
-        type: STARTGAME,
+        type: MOVEGUY,
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
-  // });
-};
-
-//MOVE
-export const chatApi = () => dispatch => {
-  axios
-    .post(
-      "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/a5c46f09-c95f-4317-b5bf-6542380cfddb/token"
-    )
-    .then(res => {
-      dispatch({});
+    .then(()=>{
+      axios
+      .get("https://reed-test.herokuapp.com/api/adv/init/", token)
+      .then(res => {
+        console.log("init");
+        // console.log(res);
+        dispatch({
+          type: STARTGAME,
+          payload: res.data
+        });
+      })
+      .catch(err => console.log(err));
     })
     .catch(err => console.log(err));
 };

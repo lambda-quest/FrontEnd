@@ -1,4 +1,4 @@
-import { STARTGAME, MOVEGUY, BUILDMAP } from "../actions/types";
+import { STARTGAME, MOVEGUY, BUILDMAP, GETPLAYERS } from "../actions/types";
 
 const initialState = {
   player_id: "",
@@ -7,7 +7,8 @@ const initialState = {
   title: "",
   description: "",
   player: [],
-  rooms: []
+  rooms: [],
+  otherpeople: []
 };
 
 export default function(state = initialState, action) {
@@ -21,13 +22,19 @@ export default function(state = initialState, action) {
     case MOVEGUY:
       return {
         ...state,
-        players: action.payload
+        player: action.payload
       };
 
     case BUILDMAP:
       return {
         ...state,
         rooms: action.payload
+      };
+
+    case GETPLAYERS:
+      return {
+        ...state,
+        otherpeople: action.payload
       };
 
     default:
