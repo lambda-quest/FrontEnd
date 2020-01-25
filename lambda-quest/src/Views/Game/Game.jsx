@@ -32,7 +32,8 @@ class Game extends Component {
   };
 
   state = {
-    bgmusic: false
+    bgmusic: false,
+    started: false
   };
 
   componentDidMount() {
@@ -43,6 +44,10 @@ class Game extends Component {
   musictoggle = () => {
     this.setState({ bgmusic: !this.state.bgmusic });
     console.log(this.state.bgmusic);
+  };
+
+  startGame = () => {
+    this.setState({ started: !this.state.started });
   };
 
   render() {
@@ -72,7 +77,11 @@ class Game extends Component {
         <h3>Welcome, {name}</h3>
 
         <div className="mazecontainer">
+          {/* {this.state.started ? (
+            <button onClick={this.startGame()}>Start Game</button>
+          ) : ( */}
           <Map title={title} activeRoom={this.props.gamedata.id} />
+          {/* )} */}
 
           {/* ROOM Component */}
           <div className="lquestRoom css-typing">
