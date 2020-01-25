@@ -1,47 +1,277 @@
-.gamebanner{
-  border: black 2px solid;
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+.gamePage {
+  background-color: #222222;
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  font-size: 10px;
+  height: 100vh;
+  /* padding: 29px; */
+}
+
+.gamebanner {
+  /* border: blue 2px solid; */
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  /* color: #fff; */
+}
+
+.logo {
+  width: 80px;
+}
+
+.lquestMap {
+  display: flex;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  flex-flow: wrap-reverse;
+  max-width: 580px;
+  border: 1px solid gray;
+}
+
+.lquestMapRoom {
+  background-color: gray;
+  min-width: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.lquestMapRoomActive {
+  background-color: yellowgreen;
+  min-width: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 3px;
+  padding: 10px;
+  background-image: url("../../assets/lambdaDudeAlone-removebg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.lquestRoom {
+  margin: auto;
+  background-color: #1f1f1f;
+  max-width: 500px;
+  height: 500px;
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  
+  align-items: center;
+  align-content: space-between;
 }
 
-.logo{
-  width: 70px;
+.lquestRoomName {
+  font-size: 12px;
 }
 
-.lquestTitle{
-  font-size: 4rem;
+.lquestTitle {
+  font-size: 3.3rem;
+}
+
+.lquestDesc {
+  font-size: 10px;
+}
+
+.lquestButtonContainer {
+  /* max-width: "300px"; */
+  /* border: 1px solid blue; */
+  display: flex;
+}
+
+.lquestButton {
+  font-size: 10px;
+  background-color: #77c600;
+  color: #000;
+  width: 80px;
+  padding: 8px 20px 8px 20px;
+  margin: 2px;
+  cursor: pointer;
 }
 
 /* SIDE MENU */
 
-
-
-.guy{
-  width: 40px;
+.guy {
+  width: 90px;
+  filter: drop-shadow(-1px 1px 2px rgb(0, 0, 0));
 }
 
-.mazecontainer{
+.tinyguy {
+  width: 32px;
+  filter: drop-shadow(-1px 1px 2px rgb(0, 0, 0));
+}
+
+.mazecontainer {
   margin: auto;
-  max-width: 1500px;
+  margin-top: 90px;
+  max-width: 1400px;
   min-width: 800px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 }
 
-/* RIGHT SIDE MENU */
-.rightsidecontainer{
-  display: flex;
-  flex-direction: column;
-  width: 400px;
+.gameboard-container {
+  width: 600px;
 }
 
-.whoIsHere{
-  border: black 2px solid;
+table {
+  font-size: 8px;
+  max-width: 600px;
+}
+
+th {
+  width: 50px;
+  height: 50px;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  padding: 0px;
+}
+
+/* RIGHT SIDE MENU */
+.rightsidecontainer {
+  display: flex;
+  flex-direction: column;
   width: 300px;
+  color: #000;
+  /* font-size: 10px; */
+}
+
+.whoIsHere {
+  border: black 2px solid;
+  width: 100%;
   height: 300px;
   word-wrap: break-word;
   overflow: scroll;
 }
+
+/* audio components */
+.mute,
+.unmute {
+  position: relative;
+  left: 670px;
+  top: 45px;
+  width: 35px;
+  background-color: #b71b1c;
+  border-radius: 100%;
+  padding: 10px;
+  filter: drop-shadow(-1px 1px 2px #333);
+}
+/* 
+.css-typing h4 {
+  border-right: .15em solid orange;
+  font-family: "Courier";
+  font-size: 12px;
+  white-space: wrap;
+  overflow: hidden;
+}
+.css-typing h4 {
+  width: 26.3em;
+  -webkit-animation: type 2s steps(40, end);
+  animation: type 2s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
+} */

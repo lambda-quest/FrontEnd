@@ -1,39 +1,43 @@
-import {STARTGAME} from '../actions/types'
-import {MOVEGUY } from '../actions/types'
-
-//    INIT_START,
-//    INIT_SUCCESS,
-//    INIT_FAILURE,
-
-//    MOVE_START,
-//    MOVE_SUCCESS,
-//    MOVE_FAILURE,
+import { STARTGAME, MOVEGUY, BUILDMAP, GETPLAYERS } from "../actions/types";
 
 const initialState = {
-  uuid: "", 
-  name: "", 
-  title: "", 
-  description: "", 
-  players: []
-}
+  player_id: "",
+  uuid: "",
+  name: "",
+  title: "",
+  description: "",
+  player: [],
+  rooms: [],
+  otherpeople: []
+};
 
 export default function(state = initialState, action) {
-  switch(action.type){
+  switch (action.type) {
     case STARTGAME:
       return {
         ...state,
-        players: action.payload
-      }
+        player: action.payload
+      };
 
-      case MOVEGUY:
+    case MOVEGUY:
       return {
         ...state,
-        players: action.payload
-      }
+        player: action.payload
+      };
 
-      default:
-        return state
+    case BUILDMAP:
+      return {
+        ...state,
+        rooms: action.payload
+      };
+
+    case GETPLAYERS:
+      return {
+        ...state,
+        otherpeople: action.payload
+      };
+
+    default:
+      return state;
   }
 }
-
-

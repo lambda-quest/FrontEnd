@@ -1,21 +1,20 @@
 import axios from "axios";
 
-import { STARTGAME } from "./types";
-import {MOVEGUY } from '../actions/types'
-
-
-//GAME
-
-//INIT
+import { STARTGAME } from "../actions/types";
+import { MOVEGUY } from "../actions/types";
+import { BUILDMAP } from "../actions/types";
+import { GETPLAYERS } from "../actions/types";
 
 let token = {
-  headers: { Authorization: "Token cbfaa68003c29eb56bed6b61eff460fa8d1d7e20" }
+  headers: { Authorization: `${localStorage.getItem("Authorization")}` }
 };
 
 export const initGame = () => dispatch => {
   axios
-    .get("https://lambda-mud-test.herokuapp.com/api/adv/init/", token)
+    .get("https://reed-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
+      console.log("init");
+      // console.log(res);
       dispatch({
         type: STARTGAME,
         payload: res.data
@@ -24,15 +23,58 @@ export const initGame = () => dispatch => {
     .catch(err => console.log(err));
 };
 
-//MOVE
-export const MoveGuy = () => dispatch => {
+export const getPlayers = () => dispatch => {
   axios
-    .post("https://lambda-mud-test.herokuapp.com/api/adv/move/", token)
+    .get("https://reed-test.herokuapp.com/api/adv/getPlayers/", token)
+    .then(res => {
+      console.log("players gotten");
+      // console.log(res);
+      dispatch({
+        type: GETPLAYERS,
+        payload: res.data
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+export const getRooms = () => dispatch => {
+  axios
+    .get("https://reed-test.herokuapp.com/api/adv/getRooms/", token)
+    .then(res => {
+      console.log("get Rooms");
+      // console.log(res);
+      dispatch({
+        type: BUILDMAP,
+        payload: res.data
+      });
+    })
+    .catch(err => console.log(err));
+};
+
+//MOVE
+export const movePlayer = direction => dispatch => {
+  axios.post("https://reed-test.herokuapp.com/api/adv/move/", direction, token);
+  // .then(res => {
+  axios
+    .get("https://reed-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
       dispatch({
         type: MOVEGUY,
         payload: res.data
       });
+    })
+    .then(()=>{
+      axios
+      .get("https://reed-test.herokuapp.com/api/adv/init/", token)
+      .then(res => {
+        console.log("init");
+        // console.log(res);
+        dispatch({
+          type: STARTGAME,
+          payload: res.data
+        });
+      })
+      .catch(err => console.log(err));
     })
     .catch(err => console.log(err));
 };
