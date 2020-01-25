@@ -165,9 +165,9 @@ td {
 .mute,
 .unmute {
   position: relative;
-  left: 670px;
-  top: 45px;
-  width: 35px;
+  left: 290px;
+  top: 60px;
+  width: 33px;
   background-color: #b71b1c;
   border-radius: 100%;
   padding: 10px;

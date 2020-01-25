@@ -41,6 +41,10 @@ class Game extends Component {
     this.props.getPlayers();
   }
 
+  // refreshmap =()=>{
+  //   window.location.reload(true)
+  // }
+
   musictoggle = () => {
     this.setState({ bgmusic: !this.state.bgmusic });
     console.log(this.state.bgmusic);
@@ -80,16 +84,15 @@ class Game extends Component {
           {/* {this.state.started ? (
             <button onClick={this.startGame()}>Start Game</button>
           ) : ( */}
-          <div >
-            {/* {!this.state.started &&  <button
-            onClick={()=>window.location.reload(true)}
-          >
-            REFRESH
-          </button>} */}
-         
-          <Map title={title} activeRoom={this.props.gamedata.id} />
+          <div>
+            <Map title={title} activeRoom={this.props.gamedata.id} />
+            {!this.state.started && (
+              <button onClick={() => window.location.reload(true)}>
+                RELOAD
+              </button>
+            )}
           </div>
-        
+
           {/* )} */}
 
           {/* ROOM Component */}
