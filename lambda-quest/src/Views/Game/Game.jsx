@@ -75,15 +75,15 @@ class Game extends Component {
         </div>
         <h3>Welcome, {name}</h3>
         <div className="instructions">
-          <p>You are SOOO close to finishing your project, Lambda Guy!</p>
+          <p style={{padding:'20px 0'}}>You are SOOO close to finishing your project, Lambda Guy!</p>
 
-          <p>
+          <p style={{padding:'20px 0'}}>
             Each Room represents a line of code that has a bug, except for one,
             where the solution to MVP is hiding. Try to get to MVP before the
             bug tracker gets to 0.
           </p>
-          <p>MVP changes with each new game.</p>
-          <p style={{color:'red'}}>**Look for error messages to help guide you to the solution.**</p>
+          <p style={{padding:'20px 0'}}>MVP changes with each new game.</p>
+          <p style={{color:'red', padding:'20px 0'}}>**Look for error messages to help guide you to the solution.**</p>
           <p>
             A type error means you're close, a Stack overflow means you're
             getting further away. No error message mean's you're not even in the
