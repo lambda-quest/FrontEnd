@@ -115,8 +115,8 @@ class Game extends Component {
                 <Accordion.Collapse eventKey="0">
                   <Card.Body className="whoIsHere">
                     <h4>Students in this room:</h4>
-                    {this.props.peopledata.map(peeps => (
-                      <p>{peeps.id}</p>
+                    {this.props.peopledata.filter(person => person.currentRoom === this.props.gamedata.id ).map(peeps => (
+                      <p>anonymous_user {peeps.id}</p>
                     ))}
                   </Card.Body>
                 </Accordion.Collapse>
