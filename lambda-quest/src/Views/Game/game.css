@@ -5,12 +5,12 @@
   font-family: "Press Start 2P", cursive;
   color: #fff;
   font-size: 10px;
-  height: 100%;
-  padding: 29px;
+  height: 100vh;
+  /* padding: 29px; */
 }
 
 .gamebanner {
-  /* border: black 2px solid; */
+  /* border: blue 2px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,8 @@
 .lquestMap {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-flow: wrap-reverse;
   max-width: 580px;
   border: 1px solid gray;
 }
@@ -41,6 +42,15 @@
 
 .lquestMapRoomActive {
   background-color: yellowgreen;
+  min-width: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin: 3px;
+  padding: 10px;
+  background-image: url("../../assets/lambdaDudeAlone-removebg.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .lquestRoom {

@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { movePlayer } from "../../../actions/gameActions";
+import { initGame } from "../../../actions/gameActions";
 import "../game.css";
 
 class ControlPanel extends Component {
   state = {};
 
   movePlayer = direction => {
-     console.log(direction)
+    console.log(direction);
     this.props.movePlayer({ direction });
+    // this.props.initGame();
   };
 
   render() {
@@ -26,7 +28,7 @@ class ControlPanel extends Component {
           <div
             className="lquestButton"
             onClick={() => this.movePlayer("n")}
-            onKeyDown={e => this.movePlayer("n")}
+            // onKeyDown={e => this.movePlayer("n")}
           >
             North
           </div>
@@ -47,4 +49,4 @@ class ControlPanel extends Component {
 
 const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps, { movePlayer })(ControlPanel);
+export default connect(mapStateToProps, { movePlayer, initGame })(ControlPanel);

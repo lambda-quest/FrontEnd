@@ -12,7 +12,7 @@ export const initGame = () => dispatch => {
   axios
     .get("https://reed-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
-      // console.log("init");
+      console.log("init");
       // console.log(res);
       dispatch({
         type: STARTGAME,
@@ -38,19 +38,18 @@ export const getRooms = () => dispatch => {
 
 //MOVE
 export const movePlayer = direction => dispatch => {
+  axios.post("https://reed-test.herokuapp.com/api/adv/move/", direction, token);
+  // .then(res => {
   axios
-    .post(
-      "https://lambda-mud-test.herokuapp.com/api/adv/move/",
-      direction,
-      token
-    )
+    .get("https://reed-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
       dispatch({
-        type: MOVEGUY,
+        type: STARTGAME,
         payload: res.data
       });
     })
     .catch(err => console.log(err));
+  // });
 };
 
 //MOVE

@@ -4,34 +4,50 @@ import { getRooms } from "../../../actions/gameActions";
 //components
 
 //bootstrap
-import Table from "react-bootstrap/Table";
+// import Table from "react-bootstrap/Table";
 //stying
 import "../game.css";
 //assetts
-import dude from "../../../assets/lambdadudeNoBg.png";
+// import dude from "../../../assets/lambdadudeNoBg.png";
 
 class Map extends Component {
-  state = {
-    activeRoom: this.props.activeRoom
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeRoom: props.activeRoom
+    };
+  }
 
   componentDidMount() {
     this.props.getRooms();
   }
 
   render() {
-    console.log("Map");
-    console.log(this.props.rooms);
-    console.log(this.state.activeRoom);
+    // console.log("Map");
+    // console.log(this.props.rooms);
+    console.log("Room inside Map component");
+    console.log(this.props);
+    console.log(this.props.activeRoom);
     return (
       <div className="gameboard-container">
         <div className="lquestMap">
           {this.props.rooms.map(room => {
-            return <div className="lquestMapRoom">{room.id}</div>;
+            return (
+              <div
+                key={room.id}
+                className={
+                  room.id === this.props.activeRoom
+                    ? "lquestMapRoomActive"
+                    : "lquestMapRoom"
+                }
+              >
+                {room.id}
+              </div>
+            );
           })}
         </div>
 
-        <Table striped bordered hover variant="dark">
+        {/* <Table striped bordered hover variant="dark">
           <thead>
             <tr>
               <th>1</th>
@@ -186,7 +202,7 @@ class Map extends Component {
               <td>100</td>
             </tr>
           </tbody>
-        </Table>
+        </Table> */}
       </div>
     );
   }
@@ -197,4 +213,4 @@ const mapStateToProps = state => ({
   rooms: state.gameReducer.rooms
 });
 
-export default connect(mapStateToProps, { getRooms })(Ma
+export default connect(mapStateToProps, { getRooms })(Map);

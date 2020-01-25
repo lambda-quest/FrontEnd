@@ -13,7 +13,7 @@ import guy from "../../assets/lambdadudeNoBg.png";
 import mute from "../../assets/mute-removebg.png";
 import unmute from "../../assets/unmute-removebg.png";
 //audio
-import gameSound from "../../assets/gameaudio.mp3";
+// import gameSound from "../../assets/gameaudio.mp3";
 //components
 import GameSound from "../Game/GameComponents/GameSound";
 import Chatbox from "../Game/GameComponents/Chatbox";
@@ -66,7 +66,7 @@ class Game extends Component {
         <h3>Welcome, {name}</h3>
 
         <div className="mazecontainer">
-          <Map title={title} activeRoom={id} />
+          <Map title={title} activeRoom={this.props.gamedata.id} />
 
           {/* ROOM Component */}
           <div className="lquestRoom css-typing">
