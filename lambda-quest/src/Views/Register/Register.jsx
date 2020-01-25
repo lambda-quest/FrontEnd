@@ -24,9 +24,8 @@ class Register extends Component {
 
   handleRegister = e => {
     e.preventDefault();
-    this.props.register(this.state.credentials);
-    console.log("handle Register");
-    // .then(()=>this.props.history.push('/game'))
+    this.props.register(this.state.credentials)
+      .then(() => this.props.history.push("/game"));
   };
 
   render() {
