@@ -22,7 +22,8 @@ export default function(state = initialState, action) {
       };
     case LOGIN_FAILURE:
       return {
-        ...state
+        ...state,
+        error: action.payload
       };
     case REGISTER_START:
       return {
@@ -34,7 +35,8 @@ export default function(state = initialState, action) {
       };
     case REGISTER_FAILURE:
       return {
-        ...state
+        ...state,
+        error: action.payload
       };
     default:
       return state;

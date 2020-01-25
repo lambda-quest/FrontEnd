@@ -1,33 +1,30 @@
+// REACT 
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
-import {connect} from 'react-redux'
-
-
-const PrivateRoute = ({
-  component: Component,
-  token,
-  errorStatusCode,
-  ...rest
-}) => {
-  return (
-    <Route 
-      {...rest} 
-        render={props=>
-        token && errorStatusCode !== 403 ? (
-          <Component {...props}/>
-          ) : (
-          <Redirect to="/"/>
-          )
+import {Route, Redirect, withRouter } from 'react-router'
+// REDUX
+import { connect } from 'react-redux'
+// -- *** -- START CODE -- *** -- //
+// -- *** -- START CODE -- *** -- //
+const PrivateRoute = ({ component: Component, token, ...rest }) => {
+return (
+    <Route
+        {...rest}
+        render={props => 
+            token ? <Component {...props} /> : <Redirect to='/' />
         }
     />
-  )
+)
 }
-
-const mapStateToProps = ({token, errorStatusCode}) => ({
-  token
-})
-
-export default connect(
-  mapStateToProps,
-  {}
-)(PrivateRoute);
+// MAP STATE TO PROPS
+const mapStateToProps = state => {
+return {
+    token: localStorage.getItem('Authorization')
+}
+}
+// CONNECT
+export default withRouter(
+connect(
+    mapStateToProps,
+    {}
+)(PrivateRoute)
+)

@@ -8,6 +8,9 @@
   /* height: 100vh; */
   /* padding: 29px; */
 }
+.gamePage h3 {
+  font-size: 30px;
+}
 
 .gamebanner {
   /* border: blue 2px solid; */
@@ -18,41 +21,45 @@
   /* color: #fff; */
 }
 
+
 .logo {
   width: 80px;
   margin-right: 15px;
 }
 
+
+
 /* MAP */
-.room{
+.room {
   padding-top: 15px;
 }
 
-.instructions{
+.instructions {
   width: 1050px;
   margin: auto;
   font-size: 14px;
+  margin-top: 30px;
 }
 
-.start{
-  background-color: #77C600;
+.start {
+  background-color: #77c600;
   color: #000;
   padding: 10px;
   margin: 10px;
 }
 
-.end{
-  background-color: #B71B1C;
+.end {
+  background-color: #b71b1c;
   color: #000;
   padding: 10px;
   margin: 10px;
 }
 
-.grey{
+.grey {
   background-color: rgb(126, 156, 110);
 }
 
-.errorsOff{
+.errorsOff {
   display: none;
 }
 
@@ -88,8 +95,9 @@
   background-repeat: no-repeat;
 }
 
-.bug{
-color: #b71b1c;
+.bug {
+  color: #b71b1c;
+  margin-bottom: 20px;
 }
 
 .lquestRoom {
@@ -108,21 +116,31 @@ color: #b71b1c;
 }
 
 .lquestRoomName {
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .lquestTitle {
-  font-size: 3.3em;
+  font-size: 35px;
 }
 
 .lquestDesc {
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .lquestButtonContainer {
   /* max-width: "300px"; */
   /* border: 1px solid blue; */
   display: flex;
+  flex-direction: column;
+}
+
+.atZero{
+  display: none;
+}
+
+.innerbtns{
+  display: flex;
+  flex-direction: row;
 }
 
 .lquestButton {
@@ -131,8 +149,13 @@ color: #b71b1c;
   color: #000;
   width: 80px;
   padding: 8px 20px 8px 20px;
-  margin: 2px;
+  margin: auto;
+ 
   cursor: pointer;
+}
+
+.hideBtns{
+  display: none;
 }
 
 /* SIDE MENU */
@@ -177,8 +200,6 @@ td {
   padding: 0px;
 }
 
-
-
 /* RIGHT SIDE MENU */
 .rightsidecontainer {
   display: flex;
@@ -196,7 +217,7 @@ td {
   overflow: scroll;
 }
 
-.whoIsHere p{
+.whoIsHere p {
   padding: 5px;
 }
 

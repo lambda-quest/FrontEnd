@@ -10,7 +10,8 @@ let token = {
 };
 
 export const initGame = () => dispatch => {
-  axios
+  console.log('inside initGame method: ', token);
+  return axios
     .get("https://reed-test.herokuapp.com/api/adv/init/", token)
     .then(res => {
       console.log("init");
@@ -24,7 +25,8 @@ export const initGame = () => dispatch => {
 };
 
 export const getPlayers = () => dispatch => {
-  axios
+  console.log('inside getPlayers method: ', token);
+  return axios
     .get("https://reed-test.herokuapp.com/api/adv/getPlayers/", token)
     .then(res => {
       console.log("players gotten");
@@ -38,7 +40,8 @@ export const getPlayers = () => dispatch => {
 };
 
 export const getRooms = () => dispatch => {
-  axios
+  console.log('inside getRooms method: ', token);
+  return axios
     .get("https://reed-test.herokuapp.com/api/adv/getRooms/", token)
     .then(res => {
       console.log("get Rooms");

@@ -25,20 +25,16 @@ export const register = credentials => dispatch => {
   dispatch({ type: REGISTER_START });
 
   return axios
-    .post(
-      "https://reed-test.herokuapp.com/api/registration/",
-      credentials
-    )
+    .post("https://reed-test.herokuapp.com/api/registration/", credentials)
     .then(res => {
       console.log("register action");
       console.log(res);
-      console.log("register action");
       localStorage.setItem("Authorization", `Token ${res.data.key}`);
       dispatch({ type: REGISTER_SUCCESS, payload: res });
     })
     .catch(err => {
-      console.log(credentials);
-      console.log("Error registering user:", err);
+      // console.log(credentials);
+      console.log(err);
       dispatch({ type: REGISTER_FAILURE, payload: err });
     });
 };

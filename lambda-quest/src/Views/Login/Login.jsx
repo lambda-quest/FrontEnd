@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Loader from 'react-loader-spinner';
+import Loader from "react-loader-spinner";
 //redux
 import { connect } from "react-redux";
 //components
@@ -36,13 +36,16 @@ class Login extends Component {
 
   handleLogin = e => {
     e.preventDefault();
-    this.setState({ loading: true })
-    this.props
-      .login(this.state.credentials)
+    // this.setState({ loading: true });
+    this.props.login(this.state.credentials)
       .then(() => {
-        this.setState({ loading: false })
-        this.props.history.push("/game");
-      }).catch(err => console.log(err))
+          if(!this.props.error) {
+            this.setState({ loading: false })
+            this.props.history.push("/game");
+          }
+          this.props.history.push("/game");
+      })
+      .catch(err => console.log(err));
   };
 
   musictoggle = () => {
@@ -51,12 +54,12 @@ class Login extends Component {
   };
 
   render() {
-    if(this.state.loading){
+    if (this.state.loading) {
       return (
         <div className="loginPage">
           <Loader type="Grid" color="yellowgreen" height={80} width={80} />
         </div>
-      )
+      );
     } else {
       return (
         <div className="loginPage">
@@ -69,14 +72,21 @@ class Login extends Component {
               <img src={mute} alt="" id="mute" />
             )}
           </div>
-  
+
           <div className="loginContainer">
             <p>Welcome to</p>
-  
+
             <img src={logo} alt="logo" className="logo" />
             <h2>Lambda Quest</h2>
-  
+
             <form onSubmit={this.handleLogin} className="lquestForm">
+              {this.props.error ? (
+                <p style={{ fontSize: "8px", color: "red" }}>
+                  Your username and password did not match or you may not be registered.
+                </p>
+              ) : (
+                <p></p>
+              )}
               <input
                 type="text"
                 name="username"
@@ -91,7 +101,7 @@ class Login extends Component {
                 value={this.state.credentials.password}
                 onChange={this.handleChange}
               ></input>
-  
+
               <button type="submit">Login</button>
               {this.props.isLoggingIn
                 ? "It's dangerous to go alone! Take this."
@@ -116,11 +126,10 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isLoggingIn: state.isLoggingIn,
-    loggedIn: state.loggedIn
-  };
-};
+const mapStateToProps = state => ({
+  loggingIn: state.authReducer.loggingIn,
+  loggedIn: state.loggedIn,
+  error: state.authReducer.error
+});
 
 export default connect(mapStateToProps, { login })(Login);

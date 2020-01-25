@@ -24,17 +24,31 @@ class Register extends Component {
 
   handleRegister = e => {
     e.preventDefault();
-    this.props.register(this.state.credentials)
-      .then(() => this.props.history.push("/game"));
+    this.props.register(this.state.credentials).then(() => {
+      if (!this.props.error) {
+        this.props.history.push("/game");
+      }
+      this.props.history.push("/game");
+    });
   };
 
   render() {
+    console.log("inside register");
+    console.log(this.props.error);
     return (
       <div className="registerPage">
         <div className="registerContainer">
           <span>Welcome to</span>
           <h2>Lambda Quest</h2>
           <form className="lquestForm" onSubmit={this.handleRegister}>
+            {this.props.error ? (
+              <p style={{ fontSize: "8px", color: "red" }}>
+                Your password must contain at least 8 characters and cannot be
+                entirely numeric.
+              </p>
+            ) : (
+              <p></p>
+            )}
             <input
               type="text"
               name="username"
@@ -76,12 +90,8 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    // error,
-    isLoggingIn: state.isLoggingIn,
-    loggedIn: state.loggedIn
-  };
-};
+const mapStateToProps = state => ({
+  error: state.authReducer.error
+});
 
 export default connect(mapStateToProps, { register })(Register);

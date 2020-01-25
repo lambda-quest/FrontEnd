@@ -58,7 +58,8 @@ class ControlPanel extends Component {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          margin: "auto"
+          margin: "auto",
+          paddingBottom: "15px"
         }}
       >
         <div className={this.state.gameOn===false? 'errorsOff':''}>
@@ -78,12 +79,15 @@ class ControlPanel extends Component {
         <h3>Bugs:{this.state.bugs}</h3>
         
       <div onClick={ ()=>this.setRando()} className={this.state.bugs===0 ? 'end': 'start'}>
-        {this.state.bugs ===0? <span><h4>You Flex!</h4> <p>play again?</p>
-        </span> : this.props.activeRoom === this.state.rando? <span><h4>You Pass!</h4> <p>{this.state.bugs >=10? 'Your TL gives you a 3!': 'your TL gives you a 2 '}</p> <p>play again?</p></span> : this.state.bugs <= 25 && this.state.gameOn ? 'Code!': 'Start'}</div>
+        {this.state.bugs ===0? <span><h4>You Flex!</h4> <p>**Click here to play again.**</p>
+        </span> : this.props.activeRoom === this.state.rando? <span><h4>You Pass!</h4> <p>{this.state.bugs >=10? 'Your TL gives you a 3!': 'your TL gives you a 2 '}</p> <p>**Click here to play again.**</p></span> : this.state.bugs <= 25 && this.state.gameOn ? 'Code!': 'Start'}</div>
       
-        <h4 style={{ fontSize: "14px" }}>Where do you want to go next?</h4>
-        <div className="lquestButtonContainer">
-          <div
+      <div className={!this.state.gameOn? 'hideBtns':''}> 
+        
+        <div className={this.state.bugs ===0? 'atZero': "lquestButtonContainer" }>
+        <h4 style={{ fontSize: "14px", padding:'20px 0' }}>Where do you want to go next?</h4>
+        <div className='innerbtns'>
+        <div
             className="lquestButton"
             onClick={() => this.north()}
           >
@@ -99,6 +103,10 @@ class ControlPanel extends Component {
             West
           </div>
         </div>
+      
+        </div> </div>
+       
+
       </div>
       
     );

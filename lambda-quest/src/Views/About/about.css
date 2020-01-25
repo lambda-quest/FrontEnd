@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+.about-container{
+color: white;
+font-family: "Press Start 2P", cursive;
+padding: 20px;
+padding-top: 50px ;
+
+}
+
+h1{
+  padding-bottom: 50px;
+}
+
+.row-container{
+  margin-bottom: 50px;
+  color: black;
+}
+
+.btn-color{
+  background-color: #B71B1C;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-color:hover{
+  color: black;
+}
+
+.btn-container{
+position: relative;
+bottom: 20px;
+
+}

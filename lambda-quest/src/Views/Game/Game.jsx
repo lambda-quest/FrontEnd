@@ -36,11 +36,6 @@ class Game extends Component {
     started: false
   };
 
-  componentDidMount() {
-    this.props.initGame();
-    this.props.getPlayers();
-  }
-
   musictoggle = () => {
     this.setState({ bgmusic: !this.state.bgmusic });
     console.log(this.state.bgmusic);
@@ -83,15 +78,16 @@ class Game extends Component {
           <p>You are SOOO close to finishing your project, Lambda Guy!</p>
 
           <p>
-            Each Room represents a line of code that has a bug, except for one, where the solution to MVP is
-            hiding. Try to get to MVP before the bug tracker gets to 0.
+            Each Room represents a line of code that has a bug, except for one,
+            where the solution to MVP is hiding. Try to get to MVP before the
+            bug tracker gets to 0.
           </p>
           <p>MVP changes with each new game.</p>
+          <p style={{color:'red'}}>**Look for error messages to help guide you to the solution.**</p>
           <p>
-            {" "}
-            Look for error messages to guide you to the solution. A type error
-            means you're close, a Stack overflow means you're getting further
-            away. No error message mean's you're not even in the ballpark!
+            A type error means you're close, a Stack overflow means you're
+            getting further away. No error message mean's you're not even in the
+            ballpark!
           </p>
         </div>
         <div className="mazecontainer">
@@ -99,6 +95,7 @@ class Game extends Component {
             <button onClick={this.startGame()}>Start Game</button>
           ) : ( */}
           <div>
+            <p>If the map is empty, click RELOAD</p>
             <Map title={title} activeRoom={this.props.gamedata.id} />
             {!this.state.started && (
               <button onClick={() => window.location.reload(true)}>
@@ -171,7 +168,8 @@ class Game extends Component {
 const mapStateToProps = state => ({
   //name_of_state: state.reducerfilename.item_in_state
   gamedata: state.gameReducer.player,
-  peopledata: state.gameReducer.otherpeople
+  peopledata: state.gameReducer.otherpeople,
+  rooms: state.gameReducer.rooms,
 });
 
 export default connect(mapStateToProps, { initGame, getPlayers })(Game);

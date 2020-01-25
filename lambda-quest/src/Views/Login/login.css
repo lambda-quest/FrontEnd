@@ -3,7 +3,7 @@
   background-color: #222222;
   font-family: "Press Start 2P", cursive;
   color: #fff;
-  font-size: 10px;
+  /* font-size: 10px; */
   /* height: 100vh; */
   display: flex;
   flex-direction: column;
@@ -18,23 +18,26 @@
   padding: 32px;
   z-index: 100;
 }
+.loginContainer h2 {
+  font-size: 30px;
+}
 
-#mute{
+#mute {
   position: relative;
   left: 300px;
   top: 10px;
   width: 40px;
-  background-color: #B71B1C;
+  background-color: #b71b1c;
   border-radius: 100%;
   padding: 10px;
 }
 
-#unmute{
+#unmute {
   position: relative;
   left: 300px;
   top: 10px;
   width: 40px;
-  background-color: #B71B1C;
+  background-color: #b71b1c;
   border-radius: 100%;
   padding: 10px;
 }
@@ -73,7 +76,7 @@
 
 #lambdaguy {
   position: relative;
-  
+
   right: 20px;
 }
 
@@ -122,5 +125,3 @@
     transform: scale(1, 1) translateY(0);
   }
 }
-
-
