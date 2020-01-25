@@ -37,7 +37,7 @@ class Game extends Component {
 
   componentDidMount() {
     this.props.initGame();
-    this.props.getPlayers()
+    this.props.getPlayers();
   }
 
   musictoggle = () => {
@@ -47,11 +47,11 @@ class Game extends Component {
 
   render() {
     const { uuid, players, title, description, name, id } = this.props.gamedata;
+
     // const {id } = this.props.peopledata
     console.log("Room in Game component");
     console.log(id);
-    console.log(this.props.peopledata)
-    console.log(id)
+    console.log(this.props.peopledata);
 
     return (
       <div className="gamePage">
@@ -93,10 +93,10 @@ class Game extends Component {
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
                   <Card.Body className="whoIsHere">
-                    {/* <div className="whoIsHere"> */}
                     <h4>Students in this room:</h4>
-                    <p>{players}</p>
-                    {/* </div> */}
+                    {this.props.peopledata.map(peeps => (
+                      <p>{peeps.id}</p>
+                    ))}
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
@@ -129,7 +129,7 @@ class Game extends Component {
 const mapStateToProps = state => ({
   //name_of_state: state.reducerfilename.item_in_state
   gamedata: state.gameReducer.player,
-  peopledata : state.gameReducer.otherpeople
+  peopledata: state.gameReducer.otherpeople
 });
 
 export default connect(mapStateToProps, { initGame, getPlayers })(Game);

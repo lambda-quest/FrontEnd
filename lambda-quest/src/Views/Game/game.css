@@ -28,6 +28,7 @@
   /* flex-wrap: wrap; */
   flex-flow: wrap-reverse;
   max-width: 580px;
+  min-width: 580px;
   border: 1px solid gray;
 }
 
