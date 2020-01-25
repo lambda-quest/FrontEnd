@@ -11,12 +11,12 @@ import "../game.css";
 // import dude from "../../../assets/lambdadudeNoBg.png";
 
 class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeRoom: props.activeRoom
-    };
-  }
+ 
+    state = {
+      activeRoom: this.props.activeRoom,
+      bugs:0
+    }
+  
 
   componentDidMount() {
     this.props.getRooms();
@@ -41,7 +41,10 @@ class Map extends Component {
                     : "lquestMapRoom"
                 }
               >
-                {room.id}
+                
+                <p className='room'>{room.id}</p>
+                
+               
               </div>
             );
           })}

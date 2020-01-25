@@ -41,10 +41,6 @@ class Game extends Component {
     this.props.getPlayers();
   }
 
-  // refreshmap =()=>{
-  //   window.location.reload(true)
-  // }
-
   musictoggle = () => {
     this.setState({ bgmusic: !this.state.bgmusic });
     console.log(this.state.bgmusic);
@@ -52,6 +48,10 @@ class Game extends Component {
 
   startGame = () => {
     this.setState({ started: !this.state.started });
+  };
+
+  bugcount = () => {
+    this.setState({ bugs: this.state.bugs - 1 });
   };
 
   render() {
@@ -79,7 +79,21 @@ class Game extends Component {
           <h1 className="lquestTitle">Lambda Quest</h1>
         </div>
         <h3>Welcome, {name}</h3>
+        <div className="instructions">
+          <p>You are SOOO close to finishing your project, Lambda Guy!</p>
 
+          <p>
+            Each Room has a bug, except one, where the solution to MVP is
+            hiding. Try to get to MVP before the bug tracker gets to 0.
+          </p>
+          <p>MVP changes with each new game.</p>
+          <p>
+            {" "}
+            Look for error messages to guide you to the solution. A type error
+            means you're close, a Stack overflow means you're getting further
+            away. No error message mean's you're not even in the ballpark!
+          </p>
+        </div>
         <div className="mazecontainer">
           {/* {this.state.started ? (
             <button onClick={this.startGame()}>Start Game</button>
@@ -103,7 +117,10 @@ class Game extends Component {
             <h4 className="lquestDesc">{description}</h4>
             <img src={guy} alt="" className="guy" />
 
-            <ControlPanel />
+            <ControlPanel
+              bugs={this.state.bugs}
+              activeRoom={this.props.gamedata.id}
+            />
           </div>
 
           <div className="rightsidecontainer">
@@ -115,9 +132,13 @@ class Game extends Component {
                 <Accordion.Collapse eventKey="0">
                   <Card.Body className="whoIsHere">
                     <h4>Students in this room:</h4>
-                    {this.props.peopledata.filter(person => person.currentRoom === this.props.gamedata.id ).map(peeps => (
-                      <p>anonymous_user {peeps.id}</p>
-                    ))}
+                    {this.props.peopledata
+                      .filter(
+                        person => person.currentRoom === this.props.gamedata.id
+                      )
+                      .map(peeps => (
+                        <p>anonymous_user {peeps.id}</p>
+                      ))}
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
