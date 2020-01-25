@@ -48,6 +48,14 @@
   margin: 10px;
 }
 
+.grey{
+  background-color: rgb(126, 156, 110);
+}
+
+.errorsOff{
+  display: none;
+}
+
 .lquestMap {
   display: flex;
   justify-content: center;

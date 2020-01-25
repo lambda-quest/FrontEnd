@@ -83,7 +83,7 @@ class Game extends Component {
           <p>You are SOOO close to finishing your project, Lambda Guy!</p>
 
           <p>
-            Each Room has a bug, except one, where the solution to MVP is
+            Each Room represents a line of code that has a bug, except for one, where the solution to MVP is
             hiding. Try to get to MVP before the bug tracker gets to 0.
           </p>
           <p>MVP changes with each new game.</p>
