@@ -80,7 +80,16 @@ class Game extends Component {
           {/* {this.state.started ? (
             <button onClick={this.startGame()}>Start Game</button>
           ) : ( */}
+          <div >
+            {/* {!this.state.started &&  <button
+            onClick={()=>window.location.reload(true)}
+          >
+            REFRESH
+          </button>} */}
+         
           <Map title={title} activeRoom={this.props.gamedata.id} />
+          </div>
+        
           {/* )} */}
 
           {/* ROOM Component */}
