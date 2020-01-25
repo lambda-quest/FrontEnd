@@ -27,8 +27,8 @@
   justify-content: center;
   /* flex-wrap: wrap; */
   flex-flow: wrap-reverse;
-  max-width: 620px;
-  min-width: 620px;
+  max-width: 610px;
+  min-width: 610px;
   border: 1px solid gray;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .gameboard-container {
-  width: 600px;
+  width: 620px;
 }
 
 table {
